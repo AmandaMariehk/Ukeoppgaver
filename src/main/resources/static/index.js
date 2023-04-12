@@ -118,6 +118,6 @@ const inputval = registration => {
     else if (registration.address === "") return false
     else if (registration.characteristics === "") return false
     else if (registration.brand === "") return false
-    else return registration.type !== ""
+    else if (registration.type === "") return false
 }
 
