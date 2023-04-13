@@ -25,9 +25,10 @@ $(() =>{
             characteristics.val("")
             formatBrandInput()
             resetTypeInput()
+
         }
         else {
-            console.log(wronginput)
+
         }
     })
 
@@ -90,7 +91,7 @@ const formatTypeInput = () => $.get ("/api/cars", list => {
 
     const currentBrand = $("#chosenBrand").val();
 
-    msg += "<option value=''>Velg Type</option>";
+    msg += "<option value='' selected hidden disabled >Velg Type</option>";
 
     for (const car of list){
         if (car.brand === currentBrand){
@@ -118,6 +119,6 @@ const inputval = registration => {
     else if (registration.address === "") return false
     else if (registration.characteristics === "") return false
     else if (registration.brand === "") return false
-    else if (registration.type === "") return false
+    else return registration.type !== "" && registration.type != null;
 }
 
